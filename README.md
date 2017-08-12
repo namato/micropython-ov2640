@@ -49,10 +49,7 @@ sudo ampy -p /dev/ttyUSB0 put ov2640_lores_constants.py
 sudo ampy -p /dev/ttyUSB0 put ov2640.py
 ```
 
-Then initialize and capture still frames using code like this.  The included 
-```main.py
-```
- contains an example.
+Then initialize and capture still frames using code like this.  The included `main.py` contains an example.
 
 ```
 import ov2640
