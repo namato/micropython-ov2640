@@ -36,6 +36,8 @@ board and load the code here in one shot with these commands.
 
 First download the latest MicroPython [image from here](http://micropython.org/download#esp8266).
 
+Example of ESP8266 setup bellow:
+
 ```
 sudo esptool.py --port /dev/ttyUSB0 erase_flash
 sudo esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=detect 0 ~/Downloads/esp8266-20170526-v1.9.bin
