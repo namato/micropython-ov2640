@@ -42,7 +42,7 @@ Example of ESP8266 setup bellow:
 sudo esptool.py --port /dev/ttyUSB0 erase_flash
 sudo esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=detect 0 ~/Downloads/esp8266-20170526-v1.9.bin
 git clone https://github.com/namato/micropython-ov2640
-cd micropython-ov2640
+cd micropython-ov2640/ESP8266
 sudo ampy -p /dev/ttyUSB0 put boot.py
 sudo ampy -p /dev/ttyUSB0 put main.py
 sudo ampy -p /dev/ttyUSB0 put ov2640_constants.py
