@@ -15,7 +15,7 @@ or save a (short) history of pictures on the flash for later retrieval.
 
 This particular camera has both an i2c and spi interface for setup and
 getting data on/off the camera.  A good way to wire up the camera to
-the ESP8266 is as follows (note Vcc and GND pins are not included here):
+the ESP8266 and ESP32 is as follows (note Vcc and GND pins are not included here):
 
  Camera Pin | ESP8266 Pin  | ESP32 Pin |
 | --------- | ------------ |-----------|
