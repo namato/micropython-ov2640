@@ -8,7 +8,6 @@ import uos
 import gc
 import os
 machine.freq(240000000)
-print('waiting....')
 class ov2640(object):
     def __init__(self, sclpin=22, sdapin=21, cspin=15, resolution=OV2640_320x240_JPEG):
         self.sdapin=sdapin
@@ -111,7 +110,6 @@ def appendbuf(fn, picbuf, howmany):
             c += 1
             f.write(bytes([by[0]]))
         f.close()
-        print("done writing")
     except OSError:
         print("error writing file")
 def cam_spi_write(address, value, hspi, cspin):
