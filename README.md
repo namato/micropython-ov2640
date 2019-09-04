@@ -1,12 +1,12 @@
 
 # MicroPython class for OV2640 Camera
 
-This is a basic interface to the [ArduCAM OV2640](http://www.arducam.com/camera-modules/2mp-ov2640/) under MicroPython for the ESP8266.  I wrote this because I could not find any good camera interfaces with MicroPython on the ESP8266.
+This is a basic interface to the [ArduCAM OV2640](http://www.arducam.com/camera-modules/2mp-ov2640/) under MicroPython for the ESP8266 and ESP32.  I wrote this because I could not find any good camera interfaces with MicroPython on the ESP8266 and ESP32.
 
 Using this class you can:
 * Initiate still pictures up to 1600x1200 resolution
 * Read them from the camera
-* Save them to flash on the ESP8266
+* Save them to flash on the ESP8266 or ESP32
 
 After saving the image you can use other modules to post it to a REST API,
 or save a (short) history of pictures on the flash for later retrieval.
@@ -15,32 +15,34 @@ or save a (short) history of pictures on the flash for later retrieval.
 
 This particular camera has both an i2c and spi interface for setup and
 getting data on/off the camera.  A good way to wire up the camera to
-the ESP8266 is as follows (note Vcc and GND pins are not included here):
+the ESP8266 and ESP32 is as follows (note Vcc and GND pins are not included here):
 
- Camera Pin | ESP8266 Pin  |
-| --------- | ------------ |
-| CS        | GPIO2        |
-| MOSI      | GPIO13       |
-| MISO      | GPIO12       |
-| SCK       | GPIO14       |
-| SDA       | GPIO4        |
-| SCL       | GPIO5        |
+ Camera Pin | ESP8266 Pin  | ESP32 Pin |
+| --------- | ------------ |-----------|
+| CS        | GPIO2        |GPIO15     |
+| MOSI      | GPIO13       |GPIO13     |
+| MISO      | GPIO12       |GPIO12     |
+| SCK       | GPIO14       |GPIO14     |
+| SDA       | GPIO4        |GPIO21     |
+| SCL       | GPIO5        |GPIO22     |
 
 ## Usage - Software
 
 First upload the module 'ov2640.py' into the root filesystem on the
-ESP8266 board you are using.  The [ampy](https://github.com/adafruit/ampy)
+ESP8266 or ESP32 board you are using.  The [ampy](https://github.com/adafruit/ampy)
 tool from Adafruit is a useful tool for doing that.  Together with
 [esptool](https://github.com/espressif/esptool), you can re-flash your
 board and load the code here in one shot with these commands.
 
 First download the latest MicroPython [image from here](http://micropython.org/download#esp8266).
 
+Example of ESP8266 setup bellow:
+
 ```
 sudo esptool.py --port /dev/ttyUSB0 erase_flash
 sudo esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=detect 0 ~/Downloads/esp8266-20170526-v1.9.bin
 git clone https://github.com/namato/micropython-ov2640
-cd micropython-ov2640
+cd micropython-ov2640/ESP8266
 sudo ampy -p /dev/ttyUSB0 put boot.py
 sudo ampy -p /dev/ttyUSB0 put main.py
 sudo ampy -p /dev/ttyUSB0 put ov2640_constants.py
