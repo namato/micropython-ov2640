@@ -6,15 +6,9 @@ import time
 import ubinascii
 import uos
 import gc
-import network
-import socket
 import os
 machine.freq(240000000)
-sta_if = network.WLAN(network.STA_IF)
-sta_if.active(True)
-sta_if.connect('TG1672G22','TG1672G0A4022') 
 print('waiting....')
-server_address=("192.168.0.10",int("5005"))
 class ov2640(object):
     def __init__(self, sclpin=22, sdapin=21, cspin=15, resolution=OV2640_320x240_JPEG):
         self.sdapin=sdapin
@@ -111,7 +105,6 @@ def appendbuf(fn, picbuf, howmany):
     try:
         f = open(fn, 'ab')
         c = 1
-        print("writing")
         for by in picbuf:
             if (c > howmany):
                 break
