@@ -19,12 +19,12 @@ the ESP8266 and ESP32 is as follows (note Vcc and GND pins are not included here
 
  Camera Pin | ESP8266 Pin  | ESP32 Pin |
 | --------- | ------------ |-----------|
-| CS        | GPIO2        |
-| MOSI      | GPIO13       |
-| MISO      | GPIO12       |
-| SCK       | GPIO14       |
-| SDA       | GPIO4        |
-| SCL       | GPIO5        |
+| CS        | GPIO2        |GPIO15     |
+| MOSI      | GPIO13       |GPIO13     |
+| MISO      | GPIO12       |GPIO12     |
+| SCK       | GPIO14       |GPIO14     |
+| SDA       | GPIO4        |GPIO21     |
+| SCL       | GPIO5        |GPIO22     |
 
 ## Usage - Software
 
