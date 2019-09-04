@@ -104,12 +104,14 @@ def appendbuf(fn, picbuf, howmany):
     try:
         f = open(fn, 'ab')
         c = 1
+        #print("writing")
         for by in picbuf:
             if (c > howmany):
                 break
             c += 1
             f.write(bytes([by[0]]))
         f.close()
+        #print("done writing")
     except OSError:
         print("error writing file")
 def cam_spi_write(address, value, hspi, cspin):
