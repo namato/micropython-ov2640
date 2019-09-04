@@ -8,8 +8,8 @@ FNAME = 'image2.jpg'
 def main():
     try:
         print("initializing camera")
-        #cam = ov2640.ov2640(resolution=ov2640.OV2640_320x240_JPEG)
-        cam = ov2640.ov2640(resolution=ov2640.OV2640_1024x768_JPEG)
+        cam = ov2640.ov2640(resolution=ov2640.OV2640_320x240_JPEG)
+        #cam = ov2640.ov2640(resolution=ov2640.OV2640_1024x768_JPEG)
         print(gc.mem_free())
     
         clen = cam.capture_to_file(FNAME, True)
