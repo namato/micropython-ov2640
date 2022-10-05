@@ -15,13 +15,13 @@ class ov2640(object):
         self.standby = False
 
         self.hspi = machine.SPI(1, baudrate=80000000, polarity=0, phase=0)
-        self.i2c = machine.I2C(scl=machine.Pin(5), sda=machine.Pin(4), freq=1000000)
+        self.i2c = machine.I2C(scl=machine.Pin(sclpin), sda=machine.Pin(sdapin), freq=1000000)
     
         # first init spi assuming the hardware spi is connected
         self.hspi.init(baudrate=2000000)
 
         # chip select -- active low
-        self.cspin = machine.Pin(2, machine.Pin.OUT)
+        self.cspin = machine.Pin(cspin, machine.Pin.OUT)
         self.cspin.on()
 
         # init the i2c interface
